@@ -34,19 +34,6 @@ html,body{
   background-image: url('bg.jpg');
   background-size: cover;
   background-position: center 30%;
-  filter: blur(1.5px) saturate(0.95) brightness(0.98);
-  transform: scale(1.03);
-}
-.bg-overlay{
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(248,244,236,0.90) 0%,
-    rgba(248,244,236,0.94) 40%,
-    rgba(248,244,236,0.97) 100%
-  );
 }
 
 .page{
@@ -73,10 +60,12 @@ html,body{
   width: auto;
   display: block;
 }
-.brand-wordmark{
-  height: 42px;
-  width: auto;
-  display: block;
+.brand-name{
+  font-family: 'Noto Serif KR', serif;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 15px;
+  color: var(--ink);
 }
 
 main{ flex:1; }
