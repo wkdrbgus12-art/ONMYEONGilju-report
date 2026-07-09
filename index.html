@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>온명 · 나의 일주 리포트</title>
+<title>온명 · 사주로 찾는 나의 반지</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Noto+Serif+KR:wght@500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -16,68 +16,73 @@
 <div class="page">
 
   <header class="brand">
-    <img src="icon.png" alt="" class="brand-mark">
-    <span class="brand-name">온명</span>
+    <a href="index.html" class="brand-link">
+      <img src="icon.png" alt="" class="brand-mark">
+      <span class="brand-name">온명</span>
+    </a>
   </header>
 
   <main>
 
-    <!-- 입력 화면 -->
-    <section id="intro-section" class="card">
-      <p class="eyebrow">「 사주 명리 · 일주 리포트 」</p>
-      <h1>당신의 태어난 날에는<br>이미 이야기가 있습니다</h1>
-      <p class="subtitle">이름과 생년월일(양력)을 입력하면, 60갑자 중 당신의 일주를 찾아<br class="br-desktop">고유한 성향 리포트를 보여드립니다.</p>
-
-      <form id="ilju-form" autocomplete="off">
-        <div class="field">
-          <label for="name-input">이름</label>
-          <input type="text" id="name-input" placeholder="예: 홍길동" required maxlength="20">
-        </div>
-        <div class="field">
-          <label for="birth-input">생년월일 <span class="hint">(양력)</span></label>
-          <input type="date" id="birth-input" required min="1920-01-01" max="2035-12-31">
-        </div>
-        <button type="submit" class="primary-btn">
-          <span>내 일주 확인하기</span>
-        </button>
-        <p class="error-msg" id="error-msg"></p>
-      </form>
+    <!-- 히어로 -->
+    <section class="card hero-card">
+      <div class="hero-photo">
+        <img src="assets/interior-painting.jpg" alt="온명 스튜디오 내부">
+      </div>
+      <p class="eyebrow">「 사주 명리 · 반지 공방 」</p>
+      <h1>당신의 사주에서 찾은 반지,<br>손끝으로 완성하다</h1>
+      <p class="subtitle">온명(溫明)은 홍대에 자리한 반지 공방으로,<br class="br-desktop">사주 명리학의 일주(日柱)를 바탕으로 당신에게 맞는 디자인을 찾고,<br class="br-desktop">직접 제작까지 함께합니다.</p>
     </section>
 
-    <!-- 결과 화면 -->
-    <section id="result-section" class="card result-card hidden">
-      <button type="button" id="reset-btn" class="ghost-btn">&larr; 다시 입력하기</button>
-
-      <div class="result-head">
-        <p class="eyebrow" id="result-eyebrow"></p>
-        <h2 id="result-title"></h2>
+    <!-- 브랜드 스토리 -->
+    <section class="card story-card">
+      <p class="eyebrow">「 브랜드 스토리 」</p>
+      <h2>나에게 맞는 것을 찾는 일</h2>
+      <div class="story-flex">
+        <img src="assets/desk-workspace.jpg" alt="온명 작업 공간" class="story-photo">
+        <p class="story-text">
+          같은 디자인이라도 누군가에게는 잘 어울리고, 누군가에게는 그렇지 않습니다.
+          온명은 &ldquo;나에게 맞는 것&rdquo;이 무엇인지 고민하는 사람들을 위해 시작됐습니다.
+          &lsquo;따뜻하고 밝다(溫明)&rsquo;는 이름처럼, 태어난 날이 가진 고유한 성향을 반지에 담아 제안하고,
+          그 제안에서 끝나지 않습니다. 상담을 통해 디자인을 정하고, 원석을 고르고,
+          직접 두드리고 다듬어 하나의 반지로 완성하는 과정까지 &mdash; 온명은 그 모든 순간을 함께합니다.
+        </p>
       </div>
-
-      <div class="report-frame">
-        <img id="result-image" alt="일주 리포트 이미지">
-      </div>
-
-      <p class="result-note">이미지를 길게 누르거나 우클릭하여 저장할 수 있어요.</p>
-
-      <a class="reserve-btn"
-         href="https://map.naver.com/p/search/%EC%98%A8%EB%AA%85/place/2033971599?c=17.81,0,0,0,dh&amp;placePath=%2Fhome%3Fbk_query%3D%EC%98%A8%EB%AA%85%26entry%3Dbmp%26from%3Dmap%26fromPanelNum%3D2%26timestamp%3D202607092041%26locale%3Dko%26svcName%3Dmap_pcv5%26searchText%3D%EC%98%A8%EB%AA%85"
-         target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 21s-7-6.1-7-11.2A7 7 0 0 1 19 9.8C19 14.9 12 21 12 21z"/>
-          <circle cx="12" cy="9.5" r="2.4"/>
-        </svg>
-        <span>온명(홍대) 예약하러 가기</span>
-      </a>
-
-      <a class="social-btn" href="https://www.instagram.com/onmyeong_studio/" target="_blank" rel="noopener noreferrer" aria-label="온명 스튜디오 인스타그램">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.2" cy="6.8" r="1"/>
-        </svg>
-        <span>@onmyeong_studio</span>
-      </a>
     </section>
+
+    <!-- 핵심 가치 -->
+    <section class="card values-card">
+      <p class="eyebrow">「 온명이 다른 점 」</p>
+      <h2>세 가지 약속</h2>
+
+      <div class="value-item">
+        <img src="assets/ring-flower.jpg" alt="사주 기반 맞춤 반지" class="value-thumb">
+        <div class="value-text">
+          <h3>사주 기반 맞춤 추천</h3>
+          <p>60갑자 일주 리포트로 당신의 성향에 맞는 디자인과 원석을 제안합니다.</p>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <img src="assets/crafting-hand.jpg" alt="홍대 공방 직접 제작" class="value-thumb">
+        <div class="value-text">
+          <h3>홍대 공방에서 직접 제작</h3>
+          <p>추천에서 그치지 않고, 상담부터 세공까지 온명 스튜디오에서 함께 만듭니다.</p>
+        </div>
+      </div>
+
+      <div class="value-item">
+        <img src="assets/ring-opal.jpg" alt="오래 가는 디자인" class="value-thumb">
+        <div class="value-text">
+          <h3>오래 가는 디자인</h3>
+          <p>유행을 따르기보다, 당신의 이야기와 함께 남을 디자인을 만듭니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <a href="report.html" class="primary-btn cta-link">
+      <span>내 사주, 추천 반지 보러가기 &rarr;</span>
+    </a>
 
   </main>
 
@@ -87,6 +92,5 @@
 
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>
