@@ -1,19 +1,19 @@
 :root{
-  --cream: #F8F4EC;
-  --paper: #FFFFFF;
-  --ink: #2A2621;
-  --ink-soft: #6B6459;
-  --line: #E7E0D3;
+  --cream: #F6F1E6;
+  --paper: #FFFDF8;
+  --ink: #2B2620;
+  --ink-soft: #6E6455;
+  --line: #D9CDB4;
 
   --c-wood: #4C7A57;   /* 갑을 - 목 */
-  --c-fire: #C9573F;   /* 병정 - 화 */
-  --c-earth: #C79A48;  /* 무기 - 토 */
+  --c-fire: #A8402B;   /* 병정 - 화 (단청 주홍) */
+  --c-earth: #B8863C;  /* 무기 - 토 */
   --c-metal: #7A7568;  /* 경신 - 금 */
-  --c-water: #3E6FA6;  /* 임계 - 수 */
+  --c-water: #2F5C7A;  /* 임계 - 수 (단청 청) */
 
   --accent: var(--c-fire);
-  --radius: 22px;
-  --shadow: 0 20px 50px -20px rgba(42, 38, 33, 0.25);
+  --radius: 4px;
+  --shadow: 0 20px 50px -20px rgba(42, 38, 33, 0.28);
 }
 
 *{ box-sizing: border-box; }
@@ -33,11 +33,13 @@ html,body{
   z-index: 0;
   overflow: hidden;
   pointer-events: none;
+  background-image:
+    repeating-radial-gradient(circle at center, rgba(43,38,32,0.035) 0, rgba(43,38,32,0.035) 1px, transparent 1px, transparent 5px);
 }
-.bg-deco svg{ width:100%; height:100%; }
-.deco-c{ opacity: 0.10; }
-.c1{ fill: var(--c-wood); }
-.c2{ fill: var(--c-water); }
+.bg-deco svg{ width:100%; height:100%; opacity: 0.5; }
+.deco-c{ opacity: 0.07; }
+.c1{ fill: var(--c-water); }
+.c2{ fill: var(--c-fire); }
 .c3{ fill: var(--c-earth); }
 
 .page{
@@ -65,38 +67,47 @@ html,body{
   display: block;
 }
 .brand-name{
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  font-size: 15px;
+  font-family: 'Song Myung', 'Noto Serif KR', serif;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  font-size: 17px;
   color: var(--ink);
 }
 
 main{ flex:1; }
 
 .card{
+  position: relative;
   background: var(--paper);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 44px 34px;
-  border: 1px solid var(--line);
+  padding: 46px 38px;
+  border: 1px solid var(--ink);
+}
+.card::before{
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(43,38,32,0.22);
+  pointer-events: none;
 }
 
 .eyebrow{
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   color: var(--accent);
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   text-transform: none;
 }
 
 h1{
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 900;
-  font-size: clamp(26px, 5vw, 34px);
-  line-height: 1.35;
-  margin: 0 0 18px;
+  font-family: 'Song Myung', 'Noto Serif KR', serif;
+  font-weight: 400;
+  font-size: clamp(28px, 5.5vw, 38px);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  margin: 0 0 20px;
   color: var(--ink);
 }
 
@@ -126,9 +137,9 @@ input[type="text"], input[type="date"]{
   font-family: inherit;
   font-size: 16px;
   padding: 14px 16px;
-  border-radius: 12px;
+  border-radius: 4px;
   border: 1.5px solid var(--line);
-  background: #FCFAF6;
+  background: #FCFAF3;
   color: var(--ink);
   outline: none;
   transition: border-color .15s ease, box-shadow .15s ease;
@@ -136,7 +147,7 @@ input[type="text"], input[type="date"]{
 }
 input[type="text"]:focus, input[type="date"]:focus{
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(201,87,63,0.12);
+  box-shadow: 0 0 0 4px rgba(168,64,43,0.12);
 }
 
 .primary-btn{
@@ -149,7 +160,7 @@ input[type="text"]:focus, input[type="date"]:focus{
   font-size: 16px;
   font-weight: 700;
   padding: 16px 20px;
-  border-radius: 999px;
+  border-radius: 6px;
   transition: transform .15s ease, background .15s ease;
 }
 .primary-btn:hover{ background: var(--accent); }
@@ -178,17 +189,17 @@ input[type="text"]:focus, input[type="date"]:focus{
 .result-head{ margin-bottom: 24px; }
 
 #result-title{
-  font-family: 'Noto Serif KR', serif;
-  font-weight: 900;
-  font-size: 26px;
+  font-family: 'Song Myung', 'Noto Serif KR', serif;
+  font-weight: 400;
+  font-size: 30px;
   margin: 0;
   color: var(--ink);
 }
 
 .report-frame{
-  border-radius: 16px;
+  border-radius: 4px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ink);
   box-shadow: 0 10px 30px -14px rgba(42,38,33,0.3);
 }
 .report-frame img{
@@ -211,7 +222,7 @@ input[type="text"]:focus, input[type="date"]:focus{
   gap: 8px;
   margin: 22px 0 0;
   padding: 15px 20px;
-  border-radius: 999px;
+  border-radius: 6px;
   background: var(--ink);
   color: var(--cream);
   text-decoration: none;
@@ -230,7 +241,7 @@ input[type="text"]:focus, input[type="date"]:focus{
   gap: 8px;
   margin: 12px 0 0;
   padding: 13px 20px;
-  border-radius: 999px;
+  border-radius: 6px;
   background: transparent;
   border: 1.5px solid var(--line);
   color: var(--ink-soft);
