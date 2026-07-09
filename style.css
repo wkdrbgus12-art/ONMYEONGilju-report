@@ -27,14 +27,18 @@ html,body{
   -webkit-font-smoothing: antialiased;
 }
 
-.bg-photo{
+.bg-deco{
   position: fixed;
   inset: 0;
   z-index: 0;
-  background-image: url('bg.jpg');
-  background-size: cover;
-  background-position: center 30%;
+  overflow: hidden;
+  pointer-events: none;
 }
+.bg-deco svg{ width:100%; height:100%; }
+.deco-c{ opacity: 0.10; }
+.c1{ fill: var(--c-wood); }
+.c2{ fill: var(--c-water); }
+.c3{ fill: var(--c-earth); }
 
 .page{
   position: relative;
@@ -199,6 +203,25 @@ input[type="text"]:focus, input[type="date"]:focus{
   font-size: 12.5px;
   margin: 16px 0 0;
 }
+
+.reserve-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 15px 20px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: background .15s ease, transform .15s ease;
+}
+.reserve-btn:hover{ background: var(--accent); }
+.reserve-btn:active{ transform: scale(0.98); }
+.reserve-btn svg{ flex-shrink: 0; }
 
 footer{
   position: relative;
