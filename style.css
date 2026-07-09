@@ -223,6 +223,25 @@ input[type="text"]:focus, input[type="date"]:focus{
 .reserve-btn:active{ transform: scale(0.98); }
 .reserve-btn svg{ flex-shrink: 0; }
 
+.social-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1.5px solid var(--line);
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color .15s ease, color .15s ease;
+}
+.social-btn:hover{ border-color: var(--accent); color: var(--accent); }
+.social-btn svg{ flex-shrink: 0; }
+
 footer{
   position: relative;
   z-index: 1;
