@@ -123,7 +123,14 @@ h1{
   margin: 0 0 34px;
 }
 
-form{ display:flex; flex-direction: column; gap: 20px; }
+form{ display:flex; flex-direction: column; gap: 18px; }
+
+.field-box{
+  background: #FCFAF3;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  padding: 16px 18px;
+}
 
 .field{ display:flex; flex-direction: column; gap: 8px; }
 
@@ -144,7 +151,7 @@ input[type="text"], input[type="date"]{
   padding: 14px 16px;
   border-radius: 4px;
   border: 1.5px solid var(--line);
-  background: #FCFAF3;
+  background: var(--paper);
   color: var(--ink);
   outline: none;
   transition: border-color .15s ease, box-shadow .15s ease;
