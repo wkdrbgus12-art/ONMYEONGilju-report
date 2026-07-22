@@ -130,6 +130,22 @@ form{ display:flex; flex-direction: column; gap: 18px; }
   border: 1px solid var(--ink);
   border-radius: 4px;
   padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field-box-label{
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.field-box-label .hint{
+  text-transform: none;
+  font-weight: 400;
 }
 
 .field{ display:flex; flex-direction: column; gap: 8px; }
@@ -199,6 +215,12 @@ input[type="text"]:focus, input[type="date"]:focus{
 .ghost-btn:hover{ color: var(--ink); }
 
 .result-head{ margin-bottom: 24px; }
+
+.result-group{ margin-bottom: 36px; }
+.result-group + .result-group{
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
 
 #result-title{
   font-family: 'Song Myung', 'Noto Serif KR', serif;

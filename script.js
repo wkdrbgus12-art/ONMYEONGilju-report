@@ -53,14 +53,34 @@ function getIlju(dateStr) {
 const form = document.getElementById('ilju-form');
 const nameInput = document.getElementById('name-input');
 const birthInput = document.getElementById('birth-input');
+const nameInput2 = document.getElementById('name-input-2');
+const birthInput2 = document.getElementById('birth-input-2');
 const errorMsg = document.getElementById('error-msg');
 
 const introSection = document.getElementById('intro-section');
 const resultSection = document.getElementById('result-section');
+
+const resultGroup1 = document.getElementById('result-group-1');
 const resultEyebrow = document.getElementById('result-eyebrow');
 const resultTitle = document.getElementById('result-title');
 const resultImage = document.getElementById('result-image');
+
+const resultGroup2 = document.getElementById('result-group-2');
+const resultEyebrow2 = document.getElementById('result-eyebrow-2');
+const resultTitle2 = document.getElementById('result-title-2');
+const resultImage2 = document.getElementById('result-image-2');
+
 const resetBtn = document.getElementById('reset-btn');
+
+function fillResult(eyebrowEl, titleEl, imgEl, name, birth) {
+  const ilju = getIlju(birth);
+  const imgPath = 'images/' + ilju.roman + '.png';
+
+  eyebrowEl.textContent = name + '님의 일주 리포트';
+  titleEl.textContent = ilju.hangul + ' (' + ilju.hanja + ')';
+  imgEl.src = imgPath;
+  imgEl.alt = ilju.hangul + ' 일주 리포트';
+}
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -68,6 +88,8 @@ form.addEventListener('submit', function (e) {
 
   const name = nameInput.value.trim();
   const birth = birthInput.value;
+  const name2 = nameInput2.value.trim();
+  const birth2 = birthInput2.value;
 
   if (!name) {
     errorMsg.textContent = '이름을 입력해주세요.';
@@ -78,13 +100,20 @@ form.addEventListener('submit', function (e) {
     return;
   }
 
-  const ilju = getIlju(birth);
-  const imgPath = 'images/' + ilju.roman + '.png';
+  const hasSecondPerson = !!(name2 || birth2);
+  if (hasSecondPerson && (!name2 || !birth2)) {
+    errorMsg.textContent = '두 번째 사람의 이름과 생년월일을 모두 입력해주세요.';
+    return;
+  }
 
-  resultEyebrow.textContent = name + '님의 일주 리포트';
-  resultTitle.textContent = ilju.hangul + ' (' + ilju.hanja + ')';
-  resultImage.src = imgPath;
-  resultImage.alt = ilju.hangul + ' 일주 리포트';
+  fillResult(resultEyebrow, resultTitle, resultImage, name, birth);
+
+  if (hasSecondPerson) {
+    fillResult(resultEyebrow2, resultTitle2, resultImage2, name2, birth2);
+    resultGroup2.classList.remove('hidden');
+  } else {
+    resultGroup2.classList.add('hidden');
+  }
 
   introSection.classList.add('hidden');
   resultSection.classList.remove('hidden');
